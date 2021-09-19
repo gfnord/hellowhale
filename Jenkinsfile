@@ -17,13 +17,13 @@ pipeline {
       }
     }
     
-      stage("Build image") {
-            steps {
-                script {
-                    myapp = docker.build("gfnord/hellowhale:${env.BUILD_ID}")
-                }
-            }
+    stage("Build image") {
+      steps {
+        script {
+          myapp = docker.build("gfnord/hellowhale:${env.BUILD_ID}")
         }
+      }
+    }
     
       stage("Push image") {
             steps {
