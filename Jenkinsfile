@@ -4,6 +4,11 @@ pipeline {
 
   stages {
 
+    stage('Initialize'){
+        def dockerHome = tool 'Docker'
+        env.PATH = "${dockerHome}/bin:${env.PATH}"
+    }
+
     stage('Checkout Source') {
       steps {
         git url:'https://github.com/gfnord/hellowhale.git', branch:'master'
