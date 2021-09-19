@@ -1,15 +1,16 @@
 pipeline {
 
-  agent any
+  agent { docker { image 'nginx' } }
+//  agent any
 
   stages {
 
-    stage('Initialize'){
-      steps {
-        def dockerHome = tool 'myDocker'
-        env.PATH = "${dockerHome}/bin:${env.PATH}"
-      }
-    }
+//    stage('Initialize'){
+//      steps {
+//        def dockerHome = tool 'myDocker'
+//        env.PATH = "${dockerHome}/bin:${env.PATH}"
+//      }
+//    }
 
     stage('Checkout Source') {
       steps {
